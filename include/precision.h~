@@ -1,0 +1,20 @@
+/*---------------------------------------------------------------------------*\
+   ____ _____               _           |
+  / ___|_   _|__ _   _  ___| | ___      | Advanced Machines for Power and
+ | |  _  | |/ __| | | |/ __| |/ _ \     | propulsion srl
+ | |_| | | | (__| |_| | (__| |  __/     |
+  \____| |_|\___|\__, |\___|_|\___|     | Copyright 2015
+                 |___/                  |
+\*---------------------------------------------------------------------------*/
+
+#ifndef PRECISION_H_INCLUDED
+#define PRECISION_H_INCLUDED
+
+#ifdef USE_DOUBLES
+typedef double real;
+#else
+typedef float real;
+#endif
+
+
+#endif // PRECISION_H_INCLUDED

@@ -1,0 +1,29 @@
+#include "thermo.h"
+
+thermo::thermo()
+{
+    //ctor
+}
+
+thermo::~thermo()
+{
+    //dtor
+}
+
+thermo::thermo(const thermo& other)
+{
+    //copy ctor
+}
+
+//thermo::thermo(inputFileName)
+//{
+//    std::ifstream (inputFileName);
+//}
+//;
+
+thermo& thermo::operator=(const thermo& rhs)
+{
+    if (this == &rhs) return *this; // handle self assignment
+    //assignment operator
+    return *this;
+}

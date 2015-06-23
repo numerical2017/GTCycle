@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1435067798 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<sys/stat.h>
+	"include/thermo.h"
+
+1435067650 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/thermo.h
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+
+1435057621 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/fluid.cpp
+	"include/fluid.h"
+
+1435062488 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/fluid.h
+	<vector>
+	<string>
+	"include/precision.h"
+
+1435059488 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/precision.h
+
+1435062499 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/mixture.cpp
+	"include/mixture.h"
+
+1432808406 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/mixture.h
+
+1435071454 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/thermo.cpp
+	"include/thermo.h"
+
+1435067650 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/thermo.h
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+
+1435071398 source:c:\users\fluent\documents\ciclo_c++\gtcycle\main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<sys/stat.h>
+	"include/thermo.h"
+
+1435071250 c:\users\fluent\documents\ciclo_c++\gtcycle\include\thermo.h
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+
+1435061221 source:c:\users\fluent\documents\ciclo_c++\gtcycle\src\fluid.cpp
+	"include/fluid.h"
+
+1435066099 source:c:\users\fluent\documents\ciclo_c++\gtcycle\src\mixture.cpp
+	"include/mixture.h"
+
+1435075411 source:c:\users\fluent\documents\ciclo_c++\gtcycle\src\thermo.cpp
+	"include/thermo.h"
+	"include/ThermoData.h"
+

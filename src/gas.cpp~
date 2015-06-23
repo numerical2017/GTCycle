@@ -1,0 +1,23 @@
+#include "gas.h"
+
+gas::gas()
+{
+    //ctor
+}
+
+gas::~gas()
+{
+    //dtor
+}
+
+gas::gas(const gas& other)
+{
+    //copy ctor
+}
+
+gas& gas::operator=(const gas& rhs)
+{
+    if (this == &rhs) return *this; // handle self assignment
+    //assignment operator
+    return *this;
+}

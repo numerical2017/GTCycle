@@ -1,0 +1,23 @@
+#include "mixture.h"
+
+mixture::mixture()
+{
+    //ctor
+}
+
+mixture::~mixture()
+{
+    //dtor
+}
+
+mixture::mixture(const mixture& other)
+{
+    //copy ctor
+}
+
+mixture& mixture::operator=(const mixture& rhs)
+{
+    if (this == &rhs) return *this; // handle self assignment
+    //assignment operator
+    return *this;
+}

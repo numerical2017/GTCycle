@@ -1,0 +1,35 @@
+/*---------------------------------------------------------------------------*\
+   ____ _____               _           |
+  / ___|_   _|__ _   _  ___| | ___      | Advanced Machines for Power and
+ | |  _  | |/ __| | | |/ __| |/ _ \     | propulsion srl
+ | |_| | | | (__| |_| | (__| |  __/     |
+  \____| |_|\___|\__, |\___|_|\___|     | Copyright 2015
+                 |___/                  |
+\*---------------------------------------------------------------------------*/
+
+#include "fluid.h"
+
+
+
+fluid::fluid()
+{
+    //ctor
+
+}
+
+fluid::~fluid()
+{
+    //dtor
+}
+
+fluid::fluid(const fluid& other)
+{
+    //copy ctor
+}
+
+fluid& fluid::operator=(const fluid& rhs)
+{
+    if (this == &rhs) return *this; // handle self assignment
+    //assignment operator
+    return *this;
+}
