@@ -45,4 +45,3 @@ fluid& fluid::operator=(const fluid& rhs)
     //assignment operator
     return *this;
 }
-
