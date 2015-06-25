@@ -45,10 +45,15 @@ class fluid : public ThermoData
          */
         fluid& operator=(const fluid& other);
         /** Input from file */
+        real GetR() const {return R;}
+        real GetMolWeight() const {return MolWeight;}
+        void SetR(real val){R=val;}
+        void SetMolWeight(real val){MolWeight=val;}
+
 
     protected:
         real R;
-        real MW;
+        real MolWeight;
 
     private:
 

@@ -45,23 +45,40 @@ mixture& mixture::operator=(const mixture& rhs)
     return *this;
 }
 
-mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& Fraction, const int FractionKind=0)
+mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& MolarFraction, const int FractionKind=0)
 {
-    if (Fraction.size() != other.size())
+    if (MolarFraction.size() != other.size())
         std::cout << "Errore nella dimensione dei vettori!!" << std::endl;
         exit(0);
     real Num=0.0;
     real Den=0.0;
     for(unsigned int i = 0; i < other.size() ; i++){
-        Num+=(Fraction[i]/other[i].MW);
-        Den+=Fraction[i];
+        Num+=(MolarFraction[i]/other[i].GetMolWeight());
+        Den+=MolarFraction[i];
     }
-    MW = (Num / Den)
-	R = MW* Rgas;
+    MolWeight = (Num / Den);
+	R = MolWeight* Rgas;
 
-
-
+    /*real sum=0.0;
+    for(unsigned int i = 0; i < other.size() ; i++){
+		PM(i)= MolarFraction[i]*MolWeight/other[i].GetMolWeight()
+		sum+=PM(i)/100
     }
+
+	do i=1,6
+		PV(i)=PM(i)/somma
+	end do
+    */
+    for(unsigned int j=0;j<14;j++){
+        real num=0.0;
+        real den=0.0;
+        for(unsigned int i = 0; i < other.size() ; i++){
+            num+=other[i].GetCoeff(j)*MolarFraction[i];
+            den+=MolarFraction[i];
+        }
+        Coeffs[j]=num/den;
+    }
+
 
 
 

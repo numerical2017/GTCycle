@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 
 std::string inputFileNamez("/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/therm.dat");
 cout << inputFileNamez << endl;
-thermo::thermo fileThermo(inputFileNamez);
+thermo fileThermo(inputFileNamez);
 ThermoData ciao;
 ciao = fileThermo.getSpecie("H2O");
 

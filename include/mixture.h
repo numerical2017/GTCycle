@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "include/fluid.h"
+#include "include/constants.h"
 
 class mixture : public fluid
 {

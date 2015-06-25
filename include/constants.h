@@ -22,16 +22,17 @@
 \*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
 #ifndef CONSTANTS_H_INCLUDED
 #define CONSTANTS_H_INCLUDED
-
-#define PI      3.1415926535897932384626433
-#define Rgas    8.314472
-#define MW_H2O 18.01528
-#define MW_O2  31.99880
-#define MW_N2  28.0134
-#define MW_CO2 44.0095
-#define MW_Ar  39.9480
-#define MW_SO2 64.0638
-
+#include "include/precision.h"
+namespace {
+static real const PI     = 3.1415926535897932384626433;
+static real const Rgas   = 8.314472;
+static real const MW_H2O = 18.01528;
+static real const MW_O2  = 31.99880;
+static real const MW_N2  = 28.0134;
+static real const MW_CO2 = 44.0095;
+static real const MW_Ar  = 39.9480;
+static real const MW_SO2 = 64.0638;
+}
 
 
 
