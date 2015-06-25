@@ -19,15 +19,16 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-\*  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.          */
+\*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
 #ifndef FLUID_H
 #define FLUID_H
 
 #include <vector>
 #include <string>
 #include "include/precision.h"
+#include "include/ThermoData.h"
 
-class fluid
+class fluid : public ThermoData
 {
     public:
         /** Default constructor */
@@ -46,12 +47,11 @@ class fluid
         /** Input from file */
 
     protected:
+        real R;
+        real MW;
+
     private:
-    std::vector<real> low_coeff_;
-    std::vector<real> high_coeff_;
-    std::vector<real> temperatures_;
-    std::string       name_;
-    std::string       phase_;
+
 };
 
 #endif // FLUID_H

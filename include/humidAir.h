@@ -20,53 +20,24 @@
 
     You should have received a copy of the GNU General Public License
 \*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
+#ifndef HUMIDAIR_H
+#define HUMIDAIR_H
+#include "include/fluid.h"
 
-#include "include/mixture.h"
-
-mixture::mixture()
+class humidAir : public fluid
 {
-    //ctor
-}
+    public:
+        /** Default constructor */
+        humidAir();
+        /** Default destructor */
+        virtual ~humidAir();
+        /** Copy constructor
+         *  \param other Object to copy from
+         */
+        humidAir(const humidAir& other);
+    protected:
+    private:
 
-mixture::~mixture()
-{
-    //dtor
-}
+};
 
-mixture::mixture(const mixture& other)
-{
-    //copy ctor
-}
-
-mixture& mixture::operator=(const mixture& rhs)
-{
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
-    return *this;
-}
-
-mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& Fraction, const int FractionKind=0)
-{
-    if (Fraction.size() != other.size())
-        std::cout << "Errore nella dimensione dei vettori!!" << std::endl;
-        exit(0);
-    real Num=0.0;
-    real Den=0.0;
-    for(unsigned int i = 0; i < other.size() ; i++){
-        Num+=(Fraction[i]/other[i].MW);
-        Den+=Fraction[i];
-    }
-    MW = (Num / Den)
-	R = MW* Rgas;
-
-
-
-    }
-
-
-
-}
-
-
-
-
+#endif // HUMIDAIR_H

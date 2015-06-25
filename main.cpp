@@ -19,7 +19,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-\*  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.          */
+\*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
 
 #include <iostream>
 #include <string>
@@ -54,10 +54,11 @@ int main(int argc, char* argv[])
 
     cout << "Hello world!" << endl;
 
-//std::string inputFileNamez("/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/therm.dat");
-std::string inputFileNamez("therm.dat");
+std::string inputFileNamez("/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/therm.dat");
 cout << inputFileNamez << endl;
-thermo fileThermo(inputFileNamez);
+thermo::thermo fileThermo(inputFileNamez);
+ThermoData ciao;
+ciao = fileThermo.getSpecie("H2O");
 
 
     return 0;

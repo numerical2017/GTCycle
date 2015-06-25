@@ -20,53 +20,20 @@
 
     You should have received a copy of the GNU General Public License
 \*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
+#ifndef CONSTANTS_H_INCLUDED
+#define CONSTANTS_H_INCLUDED
 
-#include "include/mixture.h"
-
-mixture::mixture()
-{
-    //ctor
-}
-
-mixture::~mixture()
-{
-    //dtor
-}
-
-mixture::mixture(const mixture& other)
-{
-    //copy ctor
-}
-
-mixture& mixture::operator=(const mixture& rhs)
-{
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
-    return *this;
-}
-
-mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& Fraction, const int FractionKind=0)
-{
-    if (Fraction.size() != other.size())
-        std::cout << "Errore nella dimensione dei vettori!!" << std::endl;
-        exit(0);
-    real Num=0.0;
-    real Den=0.0;
-    for(unsigned int i = 0; i < other.size() ; i++){
-        Num+=(Fraction[i]/other[i].MW);
-        Den+=Fraction[i];
-    }
-    MW = (Num / Den)
-	R = MW* Rgas;
-
-
-
-    }
-
-
-
-}
+#define PI      3.1415926535897932384626433
+#define Rgas    8.314472
+#define MW_H2O 18.01528
+#define MW_O2  31.99880
+#define MW_N2  28.0134
+#define MW_CO2 44.0095
+#define MW_Ar  39.9480
+#define MW_SO2 64.0638
 
 
 
 
+
+#endif // CONSTANTS_H_INCLUDED

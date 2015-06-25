@@ -19,14 +19,17 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-\*  along with Foobar.  If not, see <http://www.gnu.org/licenses/>.          */
+\*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
 #ifndef THERMO_H
 #define THERMO_H
 
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 #include <string>
 #include <vector>
+#include "include/ThermoData.h"
+#include "include/ExtraString.h"
 
 class thermo
 {
@@ -48,9 +51,17 @@ class thermo
         /** Instantiation from file */
         thermo(const std::string &inputFileName);
 
+        /** Extract single specie */
+        ThermoData getSpecie(std::string name);
+
+        /** Add single specie */
+        void addSpecie(const ThermoData specie);
+
+
     protected:
     private:
         std::string thermoFileName;
+        std::vector<ThermoData> speciesAvailable;
 
 
 
