@@ -26,7 +26,8 @@
 using namespace std;
 thermo::thermo()
 {
-    //ctor
+    thermoFileName = "";
+
 }
 
 thermo::~thermo()
@@ -37,10 +38,15 @@ thermo::~thermo()
 thermo::thermo(const thermo& other)
 {
     //copy ctor
+    this->thermoFileName = other.GetThermoFileName();
 }
 
-thermo::thermo(const std::string &inputFileName)
-{
+std::string thermo::GetThermoFileName() const {
+
+    return (this->thermoFileName);
+
+};
+thermo::thermo(const std::string &inputFileName){
     std::ifstream f(inputFileName.c_str()); // Input filename
     thermoFileName = inputFileName;
     std::string s;
@@ -54,8 +60,9 @@ thermo::thermo(const std::string &inputFileName)
     while(f.good()) //Reads the file up to the end
     {
         getline(f, s); //reads the line
+        s = trim(s);
           //find line with 1 in col 80
-        if (s.length()==80 && s.compare(79,1,"1") == 0){
+        if (s.length()==80 && *s.rbegin() == '1'){
             SpecieTmp.SetName(s.substr(0,18));
             SpecieTmp.SetLoT(atof(s.substr(45,10).c_str()));
             SpecieTmp.SetHiT(atof(s.substr(55,10).c_str()));
@@ -80,26 +87,34 @@ thermo::thermo(const std::string &inputFileName)
             SpecieTmp.SetCoeff(13, atof(s.substr(45,15).c_str()));
             SpecieTmp.SetCoeff(14, atof(s.substr(60,15).c_str()));
             speciesAvailable.push_back(SpecieTmp);
-
         }
     }
     f.close(); //close the file
-
+    //cout << speciesAvailable.size();
     return;
 }
 
-ThermoData thermo::getSpecie(std::string name)
-{
+std::vector<ThermoData> thermo::getSpecieVector() const{
+
+return (this->speciesAvailable);
+
+
+
+};
+
+
+ThermoData thermo::getSpecie(std::string name) const{
     bool check_found=0;
     for(unsigned int i = 0; i < speciesAvailable.size() ; i++)
     {
+        //cout << speciesAvailable[i].GetName() << endl;
         if (trim(speciesAvailable[i].GetName()) == name){
             return (speciesAvailable[i]);
             check_found = 1;
         }
     }
     if (check_found==0){
-        cout << "Errore specie non trovata" << endl;
+        cout << name << "  Errore specie non trovata" << endl;
     }
     return (speciesAvailable[0]);
 }

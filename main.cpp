@@ -26,6 +26,9 @@
 #include <cstdlib>
 #include <sys/stat.h>
 #include "include/thermo.h"
+#include "include/fluid.h"
+#include "include/mixture.h"
+#include "include/DryAir.h"
 
 
 using namespace std;
@@ -54,11 +57,44 @@ int main(int argc, char* argv[])
 
     cout << "Hello world!" << endl;
 
-std::string inputFileNamez("/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/therm.dat");
+std::string inputFileNamez("therm.dat");
 cout << inputFileNamez << endl;
 thermo fileThermo(inputFileNamez);
-ThermoData ciao;
-ciao = fileThermo.getSpecie("H2O");
+vector<ThermoData> Species;
+
+Species.push_back(fileThermo.getSpecie("N2"));
+Species.push_back(fileThermo.getSpecie("O2"));
+Species.push_back(fileThermo.getSpecie("AR"));
+Species.push_back(fileThermo.getSpecie("CO2"));
+Species.push_back(fileThermo.getSpecie("SO2"));
+Species.push_back(fileThermo.getSpecie("H2O"));
+
+vector<fluid> fluids(6);
+cout << fluids.size() << endl;
+
+
+
+for (int i=0; i<6; i++) {
+fluids[i] = Species[i];
+//cout << fluids[i].GetName() << "  " << Species[i].GetName() << endl;
+}
+
+vector<real> Frazioni;
+
+Frazioni.push_back(75.55334);
+Frazioni.push_back(23.13308);
+Frazioni.push_back(1.26344);
+Frazioni.push_back(0.05014);
+Frazioni.push_back(0.0);
+Frazioni.push_back(0.0);
+
+DryAir aria;
+
+cout << aria.GetR() << endl;
+
+
+mixture miscela(fluids,Frazioni);
+
 
 
     return 0;

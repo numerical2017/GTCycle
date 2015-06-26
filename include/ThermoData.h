@@ -32,6 +32,10 @@ class ThermoData
 
         /** Default destructor */
         virtual ~ThermoData() {};
+        /** Copy constructor */
+        ThermoData(const ThermoData& other);
+        /** Overloading */
+        ThermoData& operator=(const ThermoData& other);
 
         /** Get all coefficients */
         real GetCoeff(unsigned n) const
@@ -53,8 +57,8 @@ class ThermoData
         char GetPhase() const {return phase;}
         void SetPhase(char ph){phase=ph;}
         std::string GetName() const {return name;}
-        void SetName(std::string nm){name=nm;}
-        void SetName(char* nm){name=nm;}
+        void SetName(std::string const nm){name=nm;}
+        void SetName(char* const nm){name=nm;}
 
 
     protected:

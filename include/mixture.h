@@ -45,13 +45,25 @@ class mixture : public fluid
         mixture& operator=(const mixture& other);
         /** Define mixture from an array of fluids
         */
-        mixture(const std::vector<fluid>& Basefluids, const std::vector<real>& Fraction, const int FractionKind);
+        mixture(const std::vector<fluid>& Basefluids, const std::vector<real>& Fraction, const int FractionKind=0);
+
+        std::vector<fluid> GetBaseFluidsVector() const;
+        std::vector<real>  GetMassFractionVector() const;
+        std::vector<real>  GetMoleFractionVector() const;
+        void SetBaseFluidsVector (std::vector<fluid>);
+        void SetMassFractionVector (std::vector<real>);
+        void SetMoleFractionVector (std::vector<real>);
+
 
     protected:
-    private:
         std::vector<fluid> BaseFluids;
         std::vector<real> MassFraction;
-        std::vector<real> MolarFraction;
+        std::vector<real> MoleFraction;
+        void MoleFraction2MassFraction();
+        void MassFraction2MoleFraction();
+        void EvalR();
+    private:
+
 };
 
 #endif // MIXTURE_H

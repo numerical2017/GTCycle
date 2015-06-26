@@ -22,7 +22,7 @@
 \*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
 
 #include "include/mixture.h"
-
+using namespace std;
 mixture::mixture()
 {
     //ctor
@@ -34,27 +34,70 @@ mixture::~mixture()
 }
 
 mixture::mixture(const mixture& other)
+: fluid(other)
 {
-    //copy ctor
+    this->BaseFluids = other.GetBaseFluidsVector();
+    this->MassFraction = other.GetMassFractionVector();
+    this->MoleFraction = other.GetMoleFractionVector();
 }
 
 mixture& mixture::operator=(const mixture& rhs)
 {
+    fluid::operator=(rhs);
+    this->BaseFluids = rhs.GetBaseFluidsVector();
+    this->MassFraction = rhs.GetMassFractionVector();
+    this->MoleFraction = rhs.GetMoleFractionVector();
+
     if (this == &rhs) return *this; // handle self assignment
     //assignment operator
     return *this;
 }
 
-mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& MolarFraction, const int FractionKind=0)
+void mixture::MoleFraction2MassFraction(){
+    real Den = 0.0;
+    MassFraction.resize(MoleFraction.size());
+    for (unsigned int i=0; i < BaseFluids.size();i++){
+        Den+=(MoleFraction[i]*BaseFluids[i].GetMolWeight());
+    }
+    for (unsigned int i=0; i < BaseFluids.size();i++){
+        MassFraction[i] = MoleFraction[i]*BaseFluids[i].GetMolWeight()/Den;
+    }
+    return;
+}
+void mixture::MassFraction2MoleFraction(){
+    real Den = 0.0;
+    MoleFraction.resize(MassFraction.size());
+    for (unsigned int i=0; i < BaseFluids.size();i++){
+        Den+=(MassFraction[i]/BaseFluids[i].GetMolWeight());
+    }
+    for (unsigned int i=0; i < BaseFluids.size();i++){
+        MoleFraction[i] = (MassFraction[i]/BaseFluids[i].GetMolWeight())/Den;
+    }
+    return;
+}
+
+void mixture::EvalR(){
+    real num=0.0;
+    real den=0.0;
+    for (unsigned int i=0; i < BaseFluids.size();i++){
+        num+= BaseFluids[i].GetR()*MassFraction[i];
+        den+= MassFraction[i];
+    }
+    R = num/den;
+    return;
+}
+
+mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& MoleFraction, const int FractionKind)
 {
-    if (MolarFraction.size() != other.size())
+    if (MoleFraction.size() != other.size())
         std::cout << "Errore nella dimensione dei vettori!!" << std::endl;
-        exit(0);
+
     real Num=0.0;
     real Den=0.0;
+    cout << "Passo di qui" << endl;
     for(unsigned int i = 0; i < other.size() ; i++){
-        Num+=(MolarFraction[i]/other[i].GetMolWeight());
-        Den+=MolarFraction[i];
+        Num+=(MoleFraction[i]/other[i].GetMolWeight());
+        Den+=MoleFraction[i];
     }
     MolWeight = (Num / Den);
 	R = MolWeight* Rgas;
@@ -73,8 +116,8 @@ mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& Molar
         real num=0.0;
         real den=0.0;
         for(unsigned int i = 0; i < other.size() ; i++){
-            num+=other[i].GetCoeff(j)*MolarFraction[i];
-            den+=MolarFraction[i];
+            num+=other[i].GetCoeff(j)*MoleFraction[i];
+            den+=MoleFraction[i];
         }
         Coeffs[j]=num/den;
     }
@@ -84,6 +127,24 @@ mixture::mixture(const std::vector<fluid>& other, const std::vector<real>& Molar
 
 }
 
+std::vector<fluid> mixture::GetBaseFluidsVector() const{
 
+    return (this->BaseFluids);
+};
+std::vector<real>  mixture::GetMassFractionVector() const{
+    return (this->MassFraction);
+};
+std::vector<real>  mixture::GetMoleFractionVector() const{
+    return (this->MoleFraction);
+};
+void mixture::SetBaseFluidsVector (std::vector<fluid> other){
+    this->BaseFluids = other;
+};
+void mixture::SetMassFractionVector (std::vector<real> other){
+    this->MassFraction = other;
+};
+void mixture::SetMoleFractionVector (std::vector<real> other ){
+    this->MoleFraction = other;
+};
 
 

@@ -27,6 +27,8 @@
 #include <string>
 #include "include/precision.h"
 #include "include/ThermoData.h"
+#include "include/constants.h"
+#include <iostream>
 
 class fluid : public ThermoData
 {
@@ -43,7 +45,15 @@ class fluid : public ThermoData
          *  \param other Object to assign from
          *  \return A reference to this
          */
+        fluid(const ThermoData& other);
+        /** Assignment operator
+         *  \param other Object to assign from
+         *  \return A reference to this
+         */
         fluid& operator=(const fluid& other);
+
+        fluid& operator=(const ThermoData& other);
+
         /** Input from file */
         real GetR() const {return R;}
         real GetMolWeight() const {return MolWeight;}

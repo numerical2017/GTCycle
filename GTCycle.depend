@@ -1,12 +1,15 @@
 # depslib dependency file v1.0
-1435241692 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/main.cpp
+1435333678 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/main.cpp
 	<iostream>
 	<string>
 	<cstdlib>
 	<sys/stat.h>
 	"include/thermo.h"
+	"include/fluid.h"
+	"include/mixture.h"
+	"include/DryAir.h"
 
-1435240983 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/thermo.h
+1435315141 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/thermo.h
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -15,44 +18,47 @@
 	"include/ThermoData.h"
 	"include/ExtraString.h"
 
-1435239921 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ThermoData.h
+1435316146 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ThermoData.h
 	"include/precision.h"
 	<string>
 
-1435227805 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/precision.h
+1435305239 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/precision.h
 
-1435241170 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ExtraString.h
+1435308814 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ExtraString.h
 	<iostream>
 	<string>
 	<cstddef>
 
-1435227785 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/fluid.cpp
+1435317321 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/fluid.cpp
 	"include/fluid.h"
 
-1435242242 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/fluid.h
+1435328576 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/fluid.h
 	<vector>
 	<string>
 	"include/precision.h"
 	"include/ThermoData.h"
+	"include/constants.h"
+	<iostream>
 
-1435230419 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/humidAir.cpp
+1435305239 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/humidAir.cpp
 	"include/humidAir.h"
 
-1435230503 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/humidAir.h
+1435305239 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/humidAir.h
 	"include/fluid.h"
 
-1435243286 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/mixture.cpp
+1435333554 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/mixture.cpp
 	"include/mixture.h"
 
-1435243272 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/mixture.h
+1435333474 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/mixture.h
 	<stdlib.h>
 	<iostream>
 	"include/fluid.h"
+	"include/constants.h"
 
-1435241782 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/thermo.cpp
+1435315273 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/thermo.cpp
 	"include/thermo.h"
 
-1435240983 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/thermo.h
+1435315141 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/thermo.h
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -88,4 +94,90 @@
 
 1435245382 source:c:\users\fluent\documents\github\gtcycle\src\thermo.cpp
 	"include/thermo.h"
+
+1435305239 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/constants.h
+	"include/precision.h"
+
+1435328576 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/fluid.h
+	<vector>
+	<string>
+	"include/precision.h"
+	"include/ThermoData.h"
+	"include/constants.h"
+	<iostream>
+
+1435333474 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/mixture.h
+	<stdlib.h>
+	<iostream>
+	"include/fluid.h"
+	"include/constants.h"
+
+1435314220 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/ThermoData.cpp
+	"include/ThermoData.h"
+
+1435333626 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/DryAir.cpp
+	"DryAir.h"
+
+1435328828 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/DryAir.h
+	<include/mixture.h>
+	<include/specieAR.h>
+	<include/specieCO2.h>
+	<include/specieH2O.h>
+	<include/specieO2.h>
+	<include/specieN2.h>
+	<include/specieSO2.h>
+
+1435328485 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/specieO2.cpp
+	"specieO2.h"
+
+1435328178 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/specieO2.h
+	<include/fluid.h>
+
+1435328446 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/specieN2.cpp
+	"specieN2.h"
+
+1435328212 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/specieN2.h
+	<include/fluid.h>
+
+1435328381 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/specieCO2.cpp
+	"specieCO2.h"
+
+1435328223 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/specieCO2.h
+	<include/fluid.h>
+
+1435328358 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/specieAR.cpp
+	"specieAR.h"
+
+1435328232 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/specieAR.h
+	<include/fluid.h>
+
+1435328411 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/specieH2O.cpp
+	"specieH2O.h"
+
+1435328242 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/specieH2O.h
+	<include/fluid.h>
+
+1435328532 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/specieSO2.cpp
+	"specieSO2.h"
+
+1435328263 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/specieSO2.h
+	<include/fluid.h>
+
+1435328232 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/specieAR.h
+	<include/fluid.h>
+
+1435328223 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/specieCO2.h
+	<include/fluid.h>
+
+1435328242 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/specieH2O.h
+	<include/fluid.h>
+
+1435328178 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/specieO2.h
+	<include/fluid.h>
+
+1435328212 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/specieN2.h
+	<include/fluid.h>
+
+1435328263 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/specieSO2.h
+	<include/fluid.h>
 

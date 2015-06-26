@@ -28,7 +28,7 @@
 #include <cstddef>        // std::size_t
 
 inline std::string trim(const std::string& str,
-                 const std::string& whitespace = " \t")
+                 const std::string& whitespace = " \t\f\v\n\r")
 {
     const size_t strBegin = str.find_first_not_of(whitespace);
     if (strBegin == std::string::npos)
@@ -42,7 +42,7 @@ inline std::string trim(const std::string& str,
 
 inline std::string reduce(const std::string& str,
                    const std::string& fill = " ",
-                   const std::string& whitespace = " \t")
+                   const std::string& whitespace = " \t\f\v\n\r\t")
 {
     // trim first
     std::string result = trim(str, whitespace);

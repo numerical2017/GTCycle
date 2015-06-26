@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -34,18 +36,35 @@
 			<Add option="-fexceptions" />
 			<Add directory="/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/" />
 		</Compiler>
+		<Unit filename="include/DryAir.h" />
 		<Unit filename="include/ExtraString.h" />
+		<Unit filename="include/HumidAir.h" />
 		<Unit filename="include/ThermoData.h" />
 		<Unit filename="include/constants.h" />
 		<Unit filename="include/fluid.h" />
 		<Unit filename="include/humidAir.h" />
 		<Unit filename="include/mixture.h" />
 		<Unit filename="include/precision.h" />
+		<Unit filename="include/specieAR.h" />
+		<Unit filename="include/specieCO2.h" />
+		<Unit filename="include/specieH2O.h" />
+		<Unit filename="include/specieN2.h" />
+		<Unit filename="include/specieO2.h" />
+		<Unit filename="include/specieSO2.h" />
 		<Unit filename="include/thermo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/DryAir.cpp" />
+		<Unit filename="src/HumidAir.cpp" />
+		<Unit filename="src/ThermoData.cpp" />
 		<Unit filename="src/fluid.cpp" />
 		<Unit filename="src/humidAir.cpp" />
 		<Unit filename="src/mixture.cpp" />
+		<Unit filename="src/specieAR.cpp" />
+		<Unit filename="src/specieCO2.cpp" />
+		<Unit filename="src/specieH2O.cpp" />
+		<Unit filename="src/specieN2.cpp" />
+		<Unit filename="src/specieO2.cpp" />
+		<Unit filename="src/specieSO2.cpp" />
 		<Unit filename="src/thermo.cpp" />
 		<Extensions>
 			<code_completion />

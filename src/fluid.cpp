@@ -35,13 +35,48 @@ fluid::~fluid()
 }
 
 fluid::fluid(const fluid& other)
+: ThermoData(other)
 {
-    //copy ctor
+//    this->name = other.GetName();
+//    this->LoT  = other.GetLoT();
+//    this->MidT = other.GetMidT();
+//    this->HiT  = other.GetHiT();
+//    this->phase = other.GetPhase();
+    this->R = other.GetR();
+    this->MolWeight = other.GetMolWeight();
 }
 
-fluid& fluid::operator=(const fluid& rhs)
+fluid::fluid(const ThermoData& other)
+: ThermoData(other)
 {
-    if (this == &rhs) return *this; // handle self assignment
+//    for (unsigned int i=0; i<14; i++) this->Coeffs[i] = other.GetCoeff(i);
+//    this->name = other.GetName();
+//    this->LoT  = other.GetLoT();
+//    this->MidT = other.GetMidT();
+//    this->HiT  = other.GetHiT();
+//    this->phase = other.GetPhase();
+    this->R     = 0.0;
+    this->MolWeight = 0.0;
+
+}
+
+fluid& fluid::operator=(const fluid& other)
+{
+    ThermoData::operator=(other);
+    this->R = other.GetR();
+    this->MolWeight = other.GetMolWeight();
+
+    if (this == &other) return *this; // handle self assignment
     //assignment operator
     return *this;
 }
+fluid& fluid::operator=(const ThermoData& other)
+{
+    ThermoData::operator=(other);
+    this->R     = 0.0;
+    this->MolWeight = 0.0;
+
+    return *this;
+}
+
+

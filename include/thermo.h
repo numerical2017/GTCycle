@@ -52,10 +52,16 @@ class thermo
         thermo(const std::string &inputFileName);
 
         /** Extract single specie */
-        ThermoData getSpecie(std::string name);
+        ThermoData getSpecie(std::string name) const;
+
+        /** Extract entire vector of species */
+        std::vector<ThermoData> getSpecieVector() const;
 
         /** Add single specie */
         void addSpecie(const ThermoData specie);
+
+        /** Extract string file name */
+        std::string GetThermoFileName() const;
 
 
     protected:
