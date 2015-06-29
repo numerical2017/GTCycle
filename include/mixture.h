@@ -56,6 +56,7 @@ class mixture : public fluid
 
 
     protected:
+        unsigned int Nelements;
         std::vector<fluid> BaseFluids;
         std::vector<real> MassFraction;
         std::vector<real> MoleFraction;

@@ -23,6 +23,7 @@
 #include "DryAir.h"
 
 DryAir::DryAir()
+: mixture()
 {
     //ctor
     BaseFluids.resize(4);

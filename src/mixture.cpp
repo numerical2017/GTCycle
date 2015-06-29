@@ -24,8 +24,11 @@
 #include "include/mixture.h"
 using namespace std;
 mixture::mixture()
+: fluid()
 {
     //ctor
+    Nelements = 0;
+
 }
 
 mixture::~mixture()

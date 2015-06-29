@@ -24,9 +24,13 @@
 #include "include/fluid.h"
 
 fluid::fluid()
+: ThermoData()
 {
     //ctor
-
+    p = 101325.0;
+    T = 300.0 ;
+    R = 0.287;
+    MolWeight = 28;
 }
 
 fluid::~fluid()
@@ -79,4 +83,19 @@ fluid& fluid::operator=(const ThermoData& other)
     return *this;
 }
 
+void fluid::EvalProperties(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 

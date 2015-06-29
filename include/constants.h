@@ -32,6 +32,9 @@ static real const MW_N2  = 28.0134;
 static real const MW_CO2 = 44.0095;
 static real const MW_Ar  = 39.9480;
 static real const MW_SO2 = 64.0638;
+static real const K2C    = 273.15;
+static real const Pa2Bar = 0.00001;
+static real const divOneHundred = 0.01;
 }
 
 

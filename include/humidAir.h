@@ -22,22 +22,32 @@
 \*  along with GTcycle.  If not, see <http://www.gnu.org/licenses/>.          */
 #ifndef HUMIDAIR_H
 #define HUMIDAIR_H
-#include "include/fluid.h"
+#include "include/DryAir.h"
+#include "include/spline.h"
+#include <vector>
 
-class humidAir : public fluid
+class humidAir : public DryAir
 {
     public:
         /** Default constructor */
         humidAir();
         /** Default destructor */
         virtual ~humidAir();
-        /** Copy constructor
-         *  \param other Object to copy from
-         */
-        humidAir(const humidAir& other);
+
+        humidAir(const real& pressure, const real& temperature,
+                 const real& RelHumidity);
     protected:
     private:
+    static const real ts_array[16];
+    static const real ps_array[16];
+    static const std::vector<real> ts;
+    static const std::vector<real> ps;
+
+
+
+    real RH; // Relative humidity [-] range [0 - 1]
 
 };
+
 
 #endif // HUMIDAIR_H

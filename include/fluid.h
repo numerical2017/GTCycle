@@ -59,12 +59,14 @@ class fluid : public ThermoData
         real GetMolWeight() const {return MolWeight;}
         void SetR(real val){R=val;}
         void SetMolWeight(real val){MolWeight=val;}
+        void EvalProperties();
 
 
     protected:
-        real R;
-        real MolWeight;
-
+        real p;  // Pressure [Pa]
+        real T;  // Temperature [K]
+        real R;  // R constant [kJ / kg K]
+        real MolWeight; // Mole Weight [g / mol]
     private:
 
 };

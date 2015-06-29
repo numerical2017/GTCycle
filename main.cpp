@@ -29,6 +29,7 @@
 #include "include/fluid.h"
 #include "include/mixture.h"
 #include "include/DryAir.h"
+#include "include/humidAir.h"
 
 
 using namespace std;
@@ -92,8 +93,27 @@ DryAir aria;
 
 cout << aria.GetR() << endl;
 
+real presssure=101300.;
+real tempe=293.15;
+real rhh=0.8;
+
+humidAir aria_umida(presssure, tempe, rhh);
+
+vector<fluid> vettore1 = aria_umida.GetBaseFluidsVector();
+vector<real> vettore2 = aria_umida.GetMassFractionVector();
+vector<real> vettore3 = aria.GetMassFractionVector();
+
+cout << vettore2[0] << endl;
+cout << vettore2[1] << endl;
+cout << vettore2[2] << endl;
+cout << vettore2[3] << endl;
+cout << vettore2[4] << endl;
+cout << vettore2[5] << endl;
 
 mixture miscela(fluids,Frazioni);
+
+
+
 
 
 
