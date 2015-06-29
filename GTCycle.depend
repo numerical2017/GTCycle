@@ -70,14 +70,18 @@
 	"include/ThermoData.h"
 	"include/ExtraString.h"
 
-1435267305 source:c:\users\fluent\documents\github\gtcycle\main.cpp
+1435613352 source:c:\users\fluent\documents\github\gtcycle\main.cpp
 	<iostream>
 	<string>
 	<cstdlib>
 	<sys/stat.h>
 	"include/thermo.h"
+	"include/fluid.h"
+	"include/mixture.h"
+	"include/DryAir.h"
+	"include/humidAir.h"
 
-1435244583 c:\users\fluent\documents\github\gtcycle\include\thermo.h
+1435613352 c:\users\fluent\documents\github\gtcycle\include\thermo.h
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -86,16 +90,16 @@
 	"include/ThermoData.h"
 	"include/ExtraString.h"
 
-1435231385 source:c:\users\fluent\documents\github\gtcycle\src\fluid.cpp
+1435616686 source:c:\users\fluent\documents\github\gtcycle\src\fluid.cpp
 	"include/fluid.h"
 
-1435234019 source:c:\users\fluent\documents\github\gtcycle\src\humidair.cpp
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\humidair.cpp
 	"include/humidAir.h"
 
-1435269628 source:c:\users\fluent\documents\github\gtcycle\src\mixture.cpp
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\mixture.cpp
 	"include/mixture.h"
 
-1435245382 source:c:\users\fluent\documents\github\gtcycle\src\thermo.cpp
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\thermo.cpp
 	"include/thermo.h"
 
 1435594262 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/constants.h
@@ -203,4 +207,75 @@
 	"include/DryAir.h"
 	"include/spline.h"
 	<vector>
+
+1435617030 c:\users\fluent\documents\github\gtcycle\include\fluid.h
+	<vector>
+	<string>
+	"include/precision.h"
+	"include/ThermoData.h"
+	"include/constants.h"
+	<iostream>
+	<string.h>
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\mixture.h
+	<stdlib.h>
+	<iostream>
+	"include/fluid.h"
+	"include/constants.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\dryair.h
+	<include/mixture.h>
+	<include/specieAR.h>
+	<include/specieCO2.h>
+	<include/specieH2O.h>
+	<include/specieO2.h>
+	<include/specieN2.h>
+	<include/specieSO2.h>
+
+1435614334 c:\users\fluent\documents\github\gtcycle\include\humidair.h
+	"include/DryAir.h"
+	"include/spline.h"
+	<vector>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\dryair.cpp
+	"DryAir.h"
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\speciear.cpp
+	"specieAR.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\speciear.h
+	<include/fluid.h>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\specieco2.cpp
+	"specieCO2.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\specieco2.h
+	<include/fluid.h>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\specieh2o.cpp
+	"specieH2O.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\specieh2o.h
+	<include/fluid.h>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\specien2.cpp
+	"specieN2.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\specien2.h
+	<include/fluid.h>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\specieo2.cpp
+	"specieO2.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\specieo2.h
+	<include/fluid.h>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\specieso2.cpp
+	"specieSO2.h"
+
+1435613352 c:\users\fluent\documents\github\gtcycle\include\specieso2.h
+	<include/fluid.h>
+
+1435613352 source:c:\users\fluent\documents\github\gtcycle\src\thermodata.cpp
+	"include/ThermoData.h"
 

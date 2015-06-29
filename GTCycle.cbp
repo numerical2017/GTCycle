@@ -38,7 +38,6 @@
 		</Compiler>
 		<Unit filename="include/DryAir.h" />
 		<Unit filename="include/ExtraString.h" />
-		<Unit filename="include/HumidAir.h" />
 		<Unit filename="include/ThermoData.h" />
 		<Unit filename="include/constants.h" />
 		<Unit filename="include/fluid.h" />
@@ -54,7 +53,6 @@
 		<Unit filename="include/thermo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/DryAir.cpp" />
-		<Unit filename="src/HumidAir.cpp" />
 		<Unit filename="src/ThermoData.cpp" />
 		<Unit filename="src/fluid.cpp" />
 		<Unit filename="src/humidAir.cpp" />

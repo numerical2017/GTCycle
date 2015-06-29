@@ -83,14 +83,35 @@ fluid& fluid::operator=(const ThermoData& other)
     return *this;
 }
 
-void fluid::EvalProperties(){
-
-
-
-
-
-
-
+void fluid::PS2Properties(){
+}
+void fluid::PT2Properties(){
+    real localT=T;
+    real *coeffT[7];
+    if (T>=LoT && T<MidT){
+        for (int i=7;i<14;i++) coeffT[i]=&Coeffs[i];
+    }
+    else if (T>=MidT && T<=HiT){
+        for (int i=0;i<7;i++) coeffT[i]=&Coeffs[i];
+    }
+    else if (T<LoT){
+        for (int i=7;i<14;i++) coeffT[i]=&Coeffs[i];
+        localT = LoT;
+    }
+    else if (T>HiT){
+        for (int i=0;i<7;i++) coeffT[i]=&Coeffs[i];
+        localT=HiT;
+    }
+    cp = 0.0;
+    for (int i=4;i>-1;i--){
+        cp = cp * T + *coeffT[i];
+    }
+    cp *= R;
+    h = *coeffT[5];
+    for (int i=4;i>-1;i--){
+        h = h * T + *coeffT[i] / real(i);
+    }
+    h *= R;
 
 
 
@@ -98,4 +119,11 @@ void fluid::EvalProperties(){
 
 
 }
-
+void fluid::TS2Properties(){
+}
+void fluid::PH2Properties(){
+}
+void fluid::HS2Properties(){
+}
+void fluid::HP2Properties(){
+}

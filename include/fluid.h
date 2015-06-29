@@ -29,6 +29,7 @@
 #include "include/ThermoData.h"
 #include "include/constants.h"
 #include <iostream>
+#include <string.h>
 
 class fluid : public ThermoData
 {
@@ -59,12 +60,33 @@ class fluid : public ThermoData
         real GetMolWeight() const {return MolWeight;}
         void SetR(real val){R=val;}
         void SetMolWeight(real val){MolWeight=val;}
-        void EvalProperties();
+
+        void SetP(real val) {p=val;}
+        real GetP() const {return p;}
+        void SetT(real val) {T=val;}
+        real GetT() const {return T;}
+        void SetS(real val) {S=val;}
+        real GetS() const {return S;}
+        void SetH(real val) {h=val;}
+        real GetH() const {return h;}
+        void SetLptr(real val) {lptr=val;}
+        real GetLptr() const {return lptr;}
+        void PS2Properties();
+        void PT2Properties();
+        void TS2Properties();
+        void PH2Properties();
+        void HS2Properties();
+        void HP2Properties();
 
 
     protected:
-        real p;  // Pressure [Pa]
-        real T;  // Temperature [K]
+        real p;    // Pressure    [Pa]
+        real T;    // Temperature [K]
+        real S;    // Entropy     [J/kg K]
+        real h;    // Enthalpy    [J/Kg]
+        real cp;   // Specific Heat P=const   [J/Kg K]
+        real cv;   // Specific Heat V=const   [J/Kg K]
+        real lptr; //
         real R;  // R constant [kJ / kg K]
         real MolWeight; // Mole Weight [g / mol]
     private:

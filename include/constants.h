@@ -35,6 +35,7 @@ static real const MW_SO2 = 64.0638;
 static real const K2C    = 273.15;
 static real const Pa2Bar = 0.00001;
 static real const divOneHundred = 0.01;
+static real const one = 1.0;
 }
 
 
