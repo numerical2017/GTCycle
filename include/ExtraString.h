@@ -40,6 +40,16 @@ inline std::string trim(const std::string& str,
     return str.substr(strBegin, strRange);
 }
 
+inline std::string trimEnd(const std::string& str,
+                 const std::string& whitespace = " \t\f\v\n\r")
+{
+    const size_t strEnd = str.find_last_not_of(whitespace);
+    const size_t strRange = strEnd + 1;
+
+    return str.substr(0, strRange);
+}
+
+
 inline std::string reduce(const std::string& str,
                    const std::string& fill = " ",
                    const std::string& whitespace = " \t\f\v\n\r\t")
@@ -61,6 +71,13 @@ inline std::string reduce(const std::string& str,
     }
 
     return result;
+}
+
+inline bool is_number(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
 }
 
 #endif // EXTRASTRING_H

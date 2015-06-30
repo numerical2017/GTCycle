@@ -23,6 +23,7 @@
 #ifndef THERMODATA_H
 #define THERMODATA_H
 #include "include/precision.h"
+#include "include/constants.h"
 #include <string>
 class ThermoData
 {
@@ -48,6 +49,11 @@ class ThermoData
             if(n<14)
             Coeffs[n] = val;
         }
+        real GetR() const {return R;}
+        real GetMolWeight() const {return MolWeight;}
+        void SetR(real val){R=val;}
+        void EvalR() {R=Rgas/MolWeight;}
+        void SetMolWeight(real val){MolWeight=val;}
         real GetLoT() const {return LoT;}
         real GetMidT() const {return MidT;}
         real GetHiT() const {return HiT;}
@@ -65,6 +71,8 @@ class ThermoData
         real Coeffs[14];
         real LoT, MidT, HiT;
         char phase;
+        real R;  // R constant [kJ / kg K]
+        real MolWeight; // Mole Weight [g / mol]
         std::string name;
     private:
 };

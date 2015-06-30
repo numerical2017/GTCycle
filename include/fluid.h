@@ -56,11 +56,6 @@ class fluid : public ThermoData
         fluid& operator=(const ThermoData& other);
 
         /** Input from file */
-        real GetR() const {return R;}
-        real GetMolWeight() const {return MolWeight;}
-        void SetR(real val){R=val;}
-        void SetMolWeight(real val){MolWeight=val;}
-
         void SetP(real val) {p=val;}
         real GetP() const {return p;}
         void SetT(real val) {T=val;}
@@ -71,6 +66,8 @@ class fluid : public ThermoData
         real GetH() const {return h;}
         void SetLptr(real val) {lptr=val;}
         real GetLptr() const {return lptr;}
+        real GetCp() const {return cp;}
+        real GetCv() const {return cv;}
         void PS2Properties();
         void PT2Properties();
         void TS2Properties();
@@ -87,8 +84,8 @@ class fluid : public ThermoData
         real cp;   // Specific Heat P=const   [J/Kg K]
         real cv;   // Specific Heat V=const   [J/Kg K]
         real lptr; //
-        real R;  // R constant [kJ / kg K]
-        real MolWeight; // Mole Weight [g / mol]
+//        real R;  // R constant [kJ / kg K]
+//        real MolWeight; // Mole Weight [g / mol]
     private:
 
 };

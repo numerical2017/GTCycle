@@ -46,53 +46,82 @@ std::string thermo::GetThermoFileName() const {
     return (this->thermoFileName);
 
 };
+
+
+
+
 thermo::thermo(const std::string &inputFileName){
     std::ifstream f(inputFileName.c_str()); // Input filename
     thermoFileName = inputFileName;
     std::string s;
 
     if(!f) {
-        cout<<"Il file non esiste!";
+        cout<<"Input THERMO file does not exist!";
         return;
     }
     std::vector<ThermoData> SpeciesArray;
     ThermoData SpecieTmp;
     while(f.good()) //Reads the file up to the end
     {
+        streampos oldpos = f.tellg();
+        int counter=0;
+        for (int i=0;i<4;i++){
+            getline(f, s); //reads the line
+            s = trimEnd(s);
+            char c = '1' + i;
+            if (s.length()==80 && *s.rbegin() == c) counter++;
+            //std::cout << c << "  " << *s.rbegin() << "  " << counter << "  " << s.length() << std::endl;
+            //std::cout << counter << std::endl;
+            //std::cout << s << std::endl;
+        }
+
+        if (counter == 4){
+            f.seekg (oldpos);
+            getline(f, s); //reads the line
+            s = trimEnd(s);
+            //std::cout << s << std::endl;
+            //find line with 1 in col 80
+            if (s.length()==80 && *s.rbegin() == '1'){
+                SpecieTmp.SetName(s.substr(0,18));
+                SpecieTmp.SetLoT(atof(s.substr(45,10).c_str()));
+                SpecieTmp.SetHiT(atof(s.substr(55,10).c_str()));
+                SpecieTmp.SetMidT(1000.);
+                SpecieTmp.SetMolWeight(atof(s.substr(70,10).c_str()));
+                SpecieTmp.EvalR();
+                //cout << SpecieTmp.GetLoT() << ' ' << SpecieTmp.GetMidT() << " " << SpecieTmp.GetHiT() << endl;
+                getline(f, s); // reads the following line
+                SpecieTmp.SetCoeff(0, atof(s.substr(0,15).c_str()));
+                SpecieTmp.SetCoeff(1, atof(s.substr(15,15).c_str()));
+                SpecieTmp.SetCoeff(2, atof(s.substr(30,15).c_str()));
+                SpecieTmp.SetCoeff(3, atof(s.substr(45,15).c_str()));
+                SpecieTmp.SetCoeff(4, atof(s.substr(60,15).c_str()));
+                getline(f, s); //reads the following line
+                SpecieTmp.SetCoeff(5, atof(s.substr(0,15).c_str()));
+                SpecieTmp.SetCoeff(6, atof(s.substr(15,15).c_str()));
+                SpecieTmp.SetCoeff(7, atof(s.substr(30,15).c_str()));
+                SpecieTmp.SetCoeff(8, atof(s.substr(45,15).c_str()));
+                SpecieTmp.SetCoeff(9, atof(s.substr(60,15).c_str()));
+                getline(f, s); //reads the following line
+                SpecieTmp.SetCoeff(10, atof(s.substr(0,15).c_str()));
+                SpecieTmp.SetCoeff(11, atof(s.substr(15,15).c_str()));
+                SpecieTmp.SetCoeff(12, atof(s.substr(30,15).c_str()));
+                SpecieTmp.SetCoeff(13, atof(s.substr(45,15).c_str()));
+                SpecieTmp.SetCoeff(14, atof(s.substr(60,15).c_str()));
+                speciesAvailable.push_back(SpecieTmp);
+            }
+        }
+        else{
+        f.seekg (oldpos);
         getline(f, s); //reads the line
-        s = trim(s);
-          //find line with 1 in col 80
-        if (s.length()==80 && *s.rbegin() == '1'){
-            SpecieTmp.SetName(s.substr(0,18));
-            SpecieTmp.SetLoT(atof(s.substr(45,10).c_str()));
-            SpecieTmp.SetHiT(atof(s.substr(55,10).c_str()));
-            SpecieTmp.SetMidT(atof(s.substr(65,10).c_str()));
-            //cout << SpecieTmp.GetLoT() << ' ' << SpecieTmp.GetMidT() << " " << SpecieTmp.GetHiT() << endl;
-            getline(f, s); // reads the following line
-            SpecieTmp.SetCoeff(0, atof(s.substr(0,15).c_str()));
-            SpecieTmp.SetCoeff(1, atof(s.substr(15,15).c_str()));
-            SpecieTmp.SetCoeff(2, atof(s.substr(30,15).c_str()));
-            SpecieTmp.SetCoeff(3, atof(s.substr(45,15).c_str()));
-            SpecieTmp.SetCoeff(4, atof(s.substr(60,15).c_str()));
-            getline(f, s); //reads the following line
-            SpecieTmp.SetCoeff(5, atof(s.substr(0,15).c_str()));
-            SpecieTmp.SetCoeff(6, atof(s.substr(15,15).c_str()));
-            SpecieTmp.SetCoeff(7, atof(s.substr(30,15).c_str()));
-            SpecieTmp.SetCoeff(8, atof(s.substr(45,15).c_str()));
-            SpecieTmp.SetCoeff(9, atof(s.substr(60,15).c_str()));
-            getline(f, s); //reads the following line
-            SpecieTmp.SetCoeff(10, atof(s.substr(0,15).c_str()));
-            SpecieTmp.SetCoeff(11, atof(s.substr(15,15).c_str()));
-            SpecieTmp.SetCoeff(12, atof(s.substr(30,15).c_str()));
-            SpecieTmp.SetCoeff(13, atof(s.substr(45,15).c_str()));
-            SpecieTmp.SetCoeff(14, atof(s.substr(60,15).c_str()));
-            speciesAvailable.push_back(SpecieTmp);
         }
     }
     f.close(); //close the file
     //cout << speciesAvailable.size();
     return;
 }
+
+
+
 
 std::vector<ThermoData> thermo::getSpecieVector() const{
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1435594637 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/main.cpp
+1435671801 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/main.cpp
 	<iostream>
 	<string>
 	<cstdlib>
@@ -10,7 +10,7 @@
 	"include/DryAir.h"
 	"include/humidAir.h"
 
-1435315141 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/thermo.h
+1435657323 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/thermo.h
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -19,37 +19,39 @@
 	"include/ThermoData.h"
 	"include/ExtraString.h"
 
-1435316146 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ThermoData.h
+1435657328 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ThermoData.h
 	"include/precision.h"
+	"include/constants.h"
 	<string>
 
 1435305239 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/precision.h
 
-1435308814 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ExtraString.h
+1435664010 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/ExtraString.h
 	<iostream>
 	<string>
 	<cstddef>
 
-1435317321 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/fluid.cpp
+1435672442 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/fluid.cpp
 	"include/fluid.h"
 
-1435595156 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/fluid.h
+1435657191 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/fluid.h
 	<vector>
 	<string>
 	"include/precision.h"
 	"include/ThermoData.h"
 	"include/constants.h"
 	<iostream>
+	<string.h>
 
 1435594334 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/humidAir.cpp
 	"include/humidAir.h"
 
-1435595158 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/humidAir.h
+1435652920 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/humidAir.h
 	"include/DryAir.h"
 	"include/spline.h"
 	<vector>
 
-1435590446 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/mixture.cpp
+1435668733 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/mixture.cpp
 	"include/mixture.h"
 
 1435590239 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/mixture.h
@@ -58,10 +60,10 @@
 	"include/fluid.h"
 	"include/constants.h"
 
-1435315273 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/thermo.cpp
+1435666739 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/thermo.cpp
 	"include/thermo.h"
 
-1435315141 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/thermo.h
+1435657323 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/thermo.h
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -102,16 +104,17 @@
 1435613352 source:c:\users\fluent\documents\github\gtcycle\src\thermo.cpp
 	"include/thermo.h"
 
-1435594262 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/constants.h
+1435671066 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle//include/constants.h
 	"include/precision.h"
 
-1435595156 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/fluid.h
+1435657191 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/fluid.h
 	<vector>
 	<string>
 	"include/precision.h"
 	"include/ThermoData.h"
 	"include/constants.h"
 	<iostream>
+	<string.h>
 
 1435590239 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/mixture.h
 	<stdlib.h>
@@ -119,7 +122,7 @@
 	"include/fluid.h"
 	"include/constants.h"
 
-1435314220 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/ThermoData.cpp
+1435666889 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/ThermoData.cpp
 	"include/ThermoData.h"
 
 1435590483 source:/home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/src/DryAir.cpp
@@ -203,7 +206,7 @@
 	<vector>
 	<algorithm>
 
-1435595158 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/humidAir.h
+1435652920 /home/fluent/Documents/Lavoro/Micro_Gas_Turbine/Ciclo_C++/GTCycle/include/humidAir.h
 	"include/DryAir.h"
 	"include/spline.h"
 	<vector>

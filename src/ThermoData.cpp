@@ -26,21 +26,25 @@
 /** Copy constructor */
 ThermoData::ThermoData(const ThermoData& other){
     for (unsigned int i=0; i<14; i++) this->Coeffs[i] = other.GetCoeff(i);
-    this->name = other.GetName();
-    this->LoT  = other.GetLoT();
-    this->MidT = other.GetMidT();
-    this->HiT  = other.GetHiT();
-    this->phase = other.GetPhase();
+    name = other.GetName();
+    LoT  = other.GetLoT();
+    MidT = other.GetMidT();
+    HiT  = other.GetHiT();
+    phase = other.GetPhase();
+    MolWeight = other.GetMolWeight();
+    R = other.GetR();
 
 };
 /** Overloading */
 ThermoData& ThermoData::operator=(const ThermoData& other){
     for (unsigned int i=0; i<14; i++) this->Coeffs[i] = other.GetCoeff(i);
-    this->name = other.GetName();
-    this->LoT  = other.GetLoT();
-    this->MidT = other.GetMidT();
-    this->HiT  = other.GetHiT();
-    this->phase = other.GetPhase();
+    name = other.GetName();
+    LoT  = other.GetLoT();
+    MidT = other.GetMidT();
+    HiT  = other.GetHiT();
+    phase = other.GetPhase();
+    MolWeight = other.GetMolWeight();
+    R = other.GetR();
 
     if (this == &other) return *this; // handle self assignment
     return *this;

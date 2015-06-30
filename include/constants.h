@@ -24,18 +24,23 @@
 #define CONSTANTS_H_INCLUDED
 #include "include/precision.h"
 namespace {
-static real const PI     = 3.1415926535897932384626433;
-static real const Rgas   = 8.314472;
-static real const MW_H2O = 18.01528;
-static real const MW_O2  = 31.99880;
-static real const MW_N2  = 28.0134;
-static real const MW_CO2 = 44.0095;
-static real const MW_Ar  = 39.9480;
-static real const MW_SO2 = 64.0638;
-static real const K2C    = 273.15;
-static real const Pa2Bar = 0.00001;
-static real const divOneHundred = 0.01;
-static real const one = 1.0;
+static real const PI     = 3.1415926535897932384626433; // [-]
+static real const Rgas   = 8314.472;         // [J/kg K]
+static real const MW_H2O = 18.01528;         // [-]
+static real const MW_O2  = 31.99880;         // [-]
+static real const MW_N2  = 28.0134;          // [-]
+static real const MW_CO2 = 44.0095;          // [-]
+static real const MW_Ar  = 39.9480;          // [-]
+static real const MW_SO2 = 64.0638;          // [-]
+static real const K2C    = 273.15;           // [°C]
+static real const Pa2Bar = 0.00001;          // [bar/Pa]
+static real const divOneHundred = 0.01;      // [-]
+static real const five   = 5.0;                 // [-]
+static real const four   = 4.0;                 // [-]
+static real const three  = 3.0;                 // [-]
+static real const two    = 2.0;                 // [-]
+static real const one    = 1.0;                 // [-]
+static real const zero   = 0.0;                 // [-]
 }
 
 

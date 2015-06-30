@@ -29,8 +29,13 @@ fluid::fluid()
     //ctor
     p = 101325.0;
     T = 300.0 ;
-    R = 0.287;
+    R = 287;         // [J/kg K]
     MolWeight = 28;
+    S = 6;
+    h = 1000;
+    cp = 1000;
+    cv = 800;
+    lptr = 1;
 }
 
 fluid::~fluid()
@@ -46,8 +51,15 @@ fluid::fluid(const fluid& other)
 //    this->MidT = other.GetMidT();
 //    this->HiT  = other.GetHiT();
 //    this->phase = other.GetPhase();
-    this->R = other.GetR();
-    this->MolWeight = other.GetMolWeight();
+//    R = other.GetR();
+//    MolWeight = other.GetMolWeight();
+    T = other.GetT();
+    p = other.GetP();
+    S = other.GetS();
+    h = other.GetH();
+    cp = other.GetCp();
+    cv = other.GetCv();
+    lptr = other.GetLptr();
 }
 
 fluid::fluid(const ThermoData& other)
@@ -59,27 +71,42 @@ fluid::fluid(const ThermoData& other)
 //    this->MidT = other.GetMidT();
 //    this->HiT  = other.GetHiT();
 //    this->phase = other.GetPhase();
-    this->R     = 0.0;
-    this->MolWeight = 0.0;
-
+//    R = other.GetR();
+//    MolWeight = other.GetMolWeight();
+    T = 300;
+    p = 101325;
+    S = 6;
+    h = 1000;
+    cp = 1000;
+    cv = 800;
+    lptr = 1;
 }
 
 fluid& fluid::operator=(const fluid& other)
 {
-    ThermoData::operator=(other);
-    this->R = other.GetR();
-    this->MolWeight = other.GetMolWeight();
-
     if (this == &other) return *this; // handle self assignment
     //assignment operator
+    ThermoData::operator=(other);
+    T = other.GetT();
+    p = other.GetP();
+    S = other.GetS();
+    h = other.GetH();
+    cp = other.GetCp();
+    cv = other.GetCv();
+    lptr = other.GetLptr();
+
     return *this;
 }
 fluid& fluid::operator=(const ThermoData& other)
 {
     ThermoData::operator=(other);
-    this->R     = 0.0;
-    this->MolWeight = 0.0;
-
+    T = 300;
+    p = 101325;
+    S = 6;
+    h = 1000;
+    cp = 1000;
+    cv = 800;
+    lptr = 1;
     return *this;
 }
 
@@ -89,34 +116,34 @@ void fluid::PT2Properties(){
     real localT=T;
     real *coeffT[7];
     if (T>=LoT && T<MidT){
-        for (int i=7;i<14;i++) coeffT[i]=&Coeffs[i];
+        for (int i=7;i<14;i++) coeffT[i-7]=&Coeffs[i];
     }
     else if (T>=MidT && T<=HiT){
         for (int i=0;i<7;i++) coeffT[i]=&Coeffs[i];
     }
     else if (T<LoT){
-        for (int i=7;i<14;i++) coeffT[i]=&Coeffs[i];
+        for (int i=7;i<14;i++) coeffT[i-7]=&Coeffs[i];
         localT = LoT;
     }
     else if (T>HiT){
         for (int i=0;i<7;i++) coeffT[i]=&Coeffs[i];
         localT=HiT;
     }
-    cp = 0.0;
-    for (int i=4;i>-1;i--){
-        cp = cp * T + *coeffT[i];
+
+
+    cp = *coeffT[4];
+    for (int i=3;i>-1;i--){
+        cp = cp * localT + *coeffT[i];
     }
     cp *= R;
-    h = *coeffT[5];
-    for (int i=4;i>-1;i--){
-        h = h * T + *coeffT[i] / real(i);
+
+    h = *coeffT[4] / five;
+    for (int i=3;i>-1;i--){
+
+        h = h * localT + *coeffT[i] / (i+1);
     }
+    h = h * localT + *coeffT[5];
     h *= R;
-
-
-
-
-
 
 }
 void fluid::TS2Properties(){
